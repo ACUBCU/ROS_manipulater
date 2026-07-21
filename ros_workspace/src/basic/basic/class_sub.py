@@ -2,15 +2,19 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 
-def timer_callback():
-    print("FP")
+class M_sub(Node):
+    def __init__(self):
+        super().__init__("massage_sub")
+        # subscription callback
+        self.create_subscription(String, "message", self.sub_callback, 10)
+
+    def sub_callback(self, msg : String):
+        self.get_logger().info(msg.data)
+        
 
 def main(args=None):
     rclpy.init(args=args)
-    node = Node("massage_pub")
-    # timer
-    node.create_timer(1, timer_callback)
-    pub = node.create_publisher(String, "message", 10)
+    node = M_sub()
 
     try:
         rclpy.spin(node)
@@ -19,7 +23,7 @@ def main(args=None):
         # print("keyboard interrupt")
     finally:
         node.destroy_node()
-    
+    print("This is first program using by Class")
 
 if __name__ == "__main__":
     main()

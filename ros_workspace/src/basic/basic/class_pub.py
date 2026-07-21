@@ -1,14 +1,19 @@
 import rclpy
 from rclpy.node import Node
+from std_msgs.msg import String
 
 class M_pub(Node):
     def __init__(self):
         super().__init__("massage_pub")
         self.create_timer(1, self.timer_callback)
+        self.pub = self.create_publisher(String, "message", 10)
         self.count = 0
 
     def timer_callback(self):
-        self.get_logger().info(f"{self.count} : First P")
+        msg = String()
+        msg.data = f"{self.count} : First P"
+        self.get_logger().info(msg.data)
+        self.pub.publish(msg)
         self.count += 1
 
 def main(args=None):
@@ -26,4 +31,3 @@ def main(args=None):
 
 if __name__ == "__main__":
     main()
-    

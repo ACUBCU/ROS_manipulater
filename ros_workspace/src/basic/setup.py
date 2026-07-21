@@ -1,4 +1,6 @@
 from setuptools import find_packages, setup
+from glob import glob
+import os
 
 package_name = 'basic'
 
@@ -10,6 +12,7 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        ('share/' + package_name + '/launch', glob(os.path.join('lauch','*.launch.py')))
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -26,6 +29,8 @@ setup(
         'console_scripts': [
             "simple_pub = basic.simple_pub:main",
             "class_pub = basic.class_pub:main",
+            "class_sub = basic.class_sub:main",
+            "header_pub = basic.header_pub:main"
         ],
     },
 )

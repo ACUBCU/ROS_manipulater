@@ -36,6 +36,7 @@ setup(
             "msub = basic.mini1.msub:main",
             "m2sub = basic.mini1.m2sub:main",
             "mtsub = basic.mini1.mtsub:main",
+            "mv_turtle = basic.mv_turtle:main"
         ],
     },
 )

@@ -36,7 +36,9 @@ setup(
             "msub = basic.mini1.msub:main",
             "m2sub = basic.mini1.m2sub:main",
             "mtsub = basic.mini1.mtsub:main",
-            "mv_turtle = basic.mv_turtle:main"
+            "mv_turtle = basic.mv_turtle:main",
+            "qos_test_pub = basic.qos.qos_test_pub:main",
+            "qos_test_sub = basic.qos.qos_test_sub:main",
         ],
     },
 )

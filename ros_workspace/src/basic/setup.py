@@ -43,6 +43,7 @@ setup(
             "service_server = basic.service.service_server:main",
             "service_thread_server = basic.service.service_thread_server:main",
             "service_client = basic.service.service_client:main",
+            "my_param = basic.param.my_param:main",
         ],
     },
 )

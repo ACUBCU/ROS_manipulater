@@ -7,6 +7,7 @@ ros2 cli 실습
 * topic: list, info ,echo, pub, sub, bw, hz  
 * service: list, info, call  
 * interface: proto  
+
 rqt 실습: rqt_graph, topic monitor  
 
 **07.21**
@@ -20,3 +21,11 @@ rqt 실습: rqt_graph, topic monitor
 8교시: 터틀심 움직이기  
 
 **07.22**
+1교시: 복습  
+2교시: DDS wsl 에서 설정해야 할 내용 설명  
+3교시: interface 정의, msg, srv 작성  
+4교시: service thread server 작성  
+5교시: service client 작성()  
+6교시: parameter  
+7교시:   
+8교시:   

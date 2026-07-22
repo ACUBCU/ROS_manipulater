@@ -42,6 +42,7 @@ setup(
             "user_int_pub = basic.user_interface.user_int_pub:main",
             "service_server = basic.service.service_server:main",
             "service_thread_server = basic.service.service_thread_server:main",
+            "service_client = basic.service.service_client:main",
         ],
     },
 )

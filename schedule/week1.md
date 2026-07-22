@@ -3,10 +3,10 @@ github, vscode, wsl 개발환경 셋팅
 ros2 설치 - jazzy  
 turtlesim 실습  
 ros2 cli 실습  
-    node: list, info  
-    topic: list, info ,echo, pub, sub, bw, hz  
-    service: list, info, call  
-    interface: proto  
+* node: list, info  
+* topic: list, info ,echo, pub, sub, bw, hz  
+* service: list, info, call  
+* interface: proto  
 rqt 실습: rqt_graph, topic monitor  
 
 **07.21**

@@ -39,6 +39,9 @@ setup(
             "mv_turtle = basic.mv_turtle:main",
             "qos_test_pub = basic.qos.qos_test_pub:main",
             "qos_test_sub = basic.qos.qos_test_sub:main",
+            "user_int_pub = basic.user_interface.user_int_pub:main",
+            "service_server = basic.service.service_server:main",
+            "service_thread_server = basic.service.service_thread_server:main",
         ],
     },
 )

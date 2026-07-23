@@ -46,6 +46,8 @@ setup(
             "service_client = basic.service.service_client:main",
             "my_param = basic.param.my_param:main",
             "param_async = basic.param.param_async:main",
+            "action_server = basic.act.action_server:main",
+            "action_client = basic.act.action_client:main",
         ],
     },
 )

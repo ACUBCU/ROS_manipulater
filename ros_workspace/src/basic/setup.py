@@ -49,6 +49,7 @@ setup(
             "action_server = basic.act.action_server:main",
             "action_client = basic.act.action_client:main",
             "action_thread_server = basic.act.action_thread_server:main",
+            "mv_turtle_ns = basic.turtle.mv_turtle_ns:main",
         ],
     },
 )

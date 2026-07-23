@@ -64,6 +64,7 @@ def main(args=None):
         # print("keyboard interrupt")
     finally:
         node.destroy_node()
+        executor.shutdown()
     print("End action_server")
 
 if __name__ == "__main__":

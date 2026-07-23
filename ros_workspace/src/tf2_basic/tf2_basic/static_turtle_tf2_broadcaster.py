@@ -8,7 +8,7 @@ class M_pub(Node):
     def __init__(self):
         super().__init__("massage_pub")
 
-        transformation = [0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0]
+        transformation = [0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
         self.tf_static_broadcaster = StaticTransformBroadcaster(self)
         self.make_transforms(transformation)
 
@@ -16,6 +16,7 @@ class M_pub(Node):
         t = TransformStamped()
         t.header.stamp = self.get_clock().now().to_msg()
         t.header.frame_id = "world"
+        t.child_frame_id = "map"
         t.transform.translation.x = transformation[0]
         t.transform.translation.y = transformation[1]
         t.transform.translation.z = transformation[2]
@@ -37,7 +38,7 @@ def main(args=None):
         # print("keyboard interrupt")
     finally:
         node.destroy_node()
-    print("This is first program using by Class")
+    print("tf test")
 
 if __name__ == "__main__":
     main()

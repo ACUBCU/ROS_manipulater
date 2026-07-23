@@ -27,5 +27,15 @@ rqt 실습: rqt_graph, topic monitor
 4교시: service thread server 작성  
 5교시: service client 작성()  
 6교시: parameter  
-7교시:   
-8교시:   
+7교시: 외부 노드에서 parameter 변경 AsyncParameterClient  
+8교시: launch 에서의 parameter 설정 Node(parameters=[])  
+
+**07.23**
+1교시: 복습  
+2교시: action interface 정의, action IDL fibonacci 작성  
+3교시: topic, service, action 의 차이점  
+4교시: action server 작성, action client 작성  
+5교시: action thread server 작성( cancel, abort 구현)  
+6교시: namespace 적용 launch 작성  
+7교시: static tf 발행  
+8교시: dynamic tf 발행  

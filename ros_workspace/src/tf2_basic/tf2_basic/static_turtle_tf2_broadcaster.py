@@ -6,7 +6,7 @@ from geometry_msgs.msg import TransformStamped
 
 class M_pub(Node):
     def __init__(self):
-        super().__init__("massage_pub")
+        super().__init__("static_tf")
 
         transformation = [0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
         self.tf_static_broadcaster = StaticTransformBroadcaster(self)

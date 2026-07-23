@@ -48,6 +48,7 @@ setup(
             "param_async = basic.param.param_async:main",
             "action_server = basic.act.action_server:main",
             "action_client = basic.act.action_client:main",
+            "action_thread_server = basic.act.action_thread_server:main",
         ],
     },
 )

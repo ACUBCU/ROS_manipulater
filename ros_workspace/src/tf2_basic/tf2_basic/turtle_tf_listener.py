@@ -9,6 +9,10 @@ from tf2_ros.transform_broadcaster import TransformBroadcaster
 from turtlesim.msg import Pose
 from turtlesim.srv import Spawn
 
+# ros2 run turtlesim turtlesim_node 
+# ros2 run tf2_basic dynamic_turtle_tf2_broadcaster 
+# ros2 run turtlesim turtle_teleop_key 
+# ros2 run tf2_basic turtle_tf_listener 
 
 def euler_to_quaternion_pure(roll, pitch, yaw):
     cr = np.cos(roll * 0.5)

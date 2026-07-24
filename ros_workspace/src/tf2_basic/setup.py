@@ -1,4 +1,6 @@
 from setuptools import find_packages, setup
+import os
+from glob import glob
 
 package_name = 'tf2_basic'
 
@@ -10,6 +12,10 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        ("share/" + package_name + "/launch", glob(os.path.join("launch", "*.launch.py"))),
+        ("share/" + package_name + "/urdf", glob(os.path.join("urdf", "*.*"))),
+        ("share/" + package_name + "/rviz", glob(os.path.join("rviz", "*.*"))),
+        ("share/" + package_name + "/meshes", glob(os.path.join("meshes", "*.*"))),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

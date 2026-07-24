@@ -39,3 +39,5 @@ rqt 실습: rqt_graph, topic monitor
 6교시: namespace 적용 launch 작성  
 7교시: static tf 발행  
 8교시: dynamic tf 발행  
+
+**07.24**

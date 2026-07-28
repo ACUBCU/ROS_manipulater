@@ -1,8 +1,8 @@
 XM430-W350  
 
-**사전작업 코드**
+**사전작업 코드**  
 cmd
-* usbipd list
+* usbipd list -> BUSID 확인
 * usbipd attach --wsl Ubuntu-24.04 --busid {BUSID} -a  
 * usbipd attach --wsl Ubuntu-24.04 --busid 1-6 -a  
  

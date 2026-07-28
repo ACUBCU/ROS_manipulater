@@ -1,12 +1,12 @@
 XM430-W350  
 
 **사전작업 코드**
-- cmd
+cmd
 * usbipd list
 * usbipd attach --wsl Ubuntu-24.04 --busid {BUSID} -a  
 * usbipd attach --wsl Ubuntu-24.04 --busid 1-6 -a  
  
-- Terminal
+Terminal
 * ros2 launch open_manipulator_bringup open_manipulator_x.launch.py
 * ls /dev/ttyUSB*
 * port_name:=/dev/ttyUSB*

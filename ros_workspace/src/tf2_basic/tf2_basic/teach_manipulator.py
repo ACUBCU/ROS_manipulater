@@ -121,12 +121,20 @@ def main(args=None):
     except KeyboardInterrupt:
         pass
     finally:
+        # 1. 다른 로직에 의해 블로킹되기 전에 터미널 설정을 최우선으로 복구
+        if hasattr(node, '_stdin_fd') and node._stdin_fd is not None:
+            try:
+                termios.tcsetattr(node._stdin_fd, termios.TCSADRAIN, node._terminal_settings)
+            except Exception:
+                pass
+
+        # 2. 터미널 복구 완료 후 하드웨어 토크 재활성화 시도
         try:
             node.set_torque(True)
         except Exception:
             pass
-        if node._stdin_fd is not None:
-            termios.tcsetattr(node._stdin_fd, termios.TCSADRAIN, node._terminal_settings)
+        
+        # 3. 노드 안전 종료
         node.destroy_node()
         if rclpy.ok():
             rclpy.try_shutdown()

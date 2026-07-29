@@ -17,3 +17,5 @@
 6교시: play_recorded_dance 노드 작성  
 7교시: pick and place 실습 (traching data 활용)  
 8교시: moveit 실습  
+
+**07.29**

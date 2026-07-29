@@ -10,7 +10,7 @@ ros2 cli 실습
 
 rqt 실습: rqt_graph, topic monitor  
 
-**07.21**
+**07.21**  
 1교시: 복습, ros2 common package  
 2교시: 중요 컨셉(DDS, node spin, state)  
 3교시: RMW architecture  
@@ -20,7 +20,7 @@ rqt 실습: rqt_graph, topic monitor
 7교시: Header class time pub 작성, 5개 노드 실습  
 8교시: 터틀심 움직이기  
 
-**07.22**
+**07.22**  
 1교시: 복습  
 2교시: DDS wsl 에서 설정해야 할 내용 설명  
 3교시: interface 정의, msg, srv 작성  
@@ -30,7 +30,7 @@ rqt 실습: rqt_graph, topic monitor
 7교시: 외부 노드에서 parameter 변경 AsyncParameterClient  
 8교시: launch 에서의 parameter 설정 Node(parameters=[])  
 
-**07.23**
+**07.23**  
 1교시: 복습  
 2교시: action interface 정의, action IDL fibonacci 작성  
 3교시: topic, service, action 의 차이점  
@@ -40,7 +40,7 @@ rqt 실습: rqt_graph, topic monitor
 7교시: static tf 발행  
 8교시: dynamic tf 발행  
 
-**07.24**
+**07.24**  
 1교시: 복습  
 2교시: tf2 설명 tf2 패키지 작성  
 3교시: tf2 listener 작성, tf2 listener 에서 transform 받아오기  

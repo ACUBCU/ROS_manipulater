@@ -1,4 +1,4 @@
-**07.27**
+**07.27**  
 1교시: 복습  
 2교시: 하드웨어 연결 및 dynamixel wizard 설치 및 작동 테스트  
 3교시: manipulator-X 패키지 설치 및 작동 실습  
@@ -8,7 +8,7 @@
 7교시: node 작성 trajectory_joint_state 로 manipulator-X 제어 실습  
 8교시: 과제 - 춤추는 로봇 팔 만들기  
 
-**07.28**
+**07.28**  
 1교시: 복습  
 2교시: joint state action code 작성  
 3교시: [실습] 춤추는 로봇팔 만들기  
@@ -18,4 +18,4 @@
 7교시: pick and place 실습 (traching data 활용)  
 8교시: moveit 실습  
 
-**07.29**
+**07.29**  

@@ -41,3 +41,11 @@ rqt 실습: rqt_graph, topic monitor
 8교시: dynamic tf 발행  
 
 **07.24**
+1교시: 복습  
+2교시: tf2 설명 tf2 패키지 작성  
+3교시: tf2 listener 작성, tf2 listener 에서 transform 받아오기  
+4교시: 실습[터틀심 listener]  
+5교시: turtlesim 에서 tf2 적용  
+6교시: urdf 설명, urdf 패키지 작성  
+7교시: xacro 실습  
+8교시: urdf 실습  

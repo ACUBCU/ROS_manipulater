@@ -15,3 +15,6 @@ Terminal
 **Telelop 수동 조작**
 - ros2 run open_manipulator_teleop open_manipulator_x_teleop
 - 1/q, 2/w, 3/e, 4/r, o/p
+
+**moveit**  
+* ros2 launch open_manipulator_moveit_config open_manipulator_x_moveit.launch.py use_sim:=true

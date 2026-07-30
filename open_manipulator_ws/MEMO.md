@@ -18,3 +18,7 @@ Terminal
 
 **moveit**  
 * ros2 launch open_manipulator_moveit_config open_manipulator_x_moveit.launch.py use_sim:=true
+
+**Gazebo**
+* gz sim
+* ros2 launch open_manipulator_bringup open_manipulator_x_gazebo.launch.py

@@ -5,3 +5,5 @@
 [2주차](./schedule/week2.md) 07.27\~31  
 [3주차](./schedule/week3.md) 08.03\~07  
 [4주차](./schedule/week4.md) 08.10\~14  
+
+[명령어](./open_manipulator_ws/MEMO.md)  

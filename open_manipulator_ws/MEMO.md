@@ -11,6 +11,8 @@ Terminal
 * ls /dev/ttyUSB* -> portname 변경될 때 사용
 * ros2 launch open_manipulator_bringup open_manipulator_x.launch.py port_name:=/dev/ttyUSB*
 
+**패키지**
+* ros2 pkg create --build-type ament_python {pkg_name}
 
 **Telelop 수동 조작**
 - ros2 run open_manipulator_teleop open_manipulator_x_teleop

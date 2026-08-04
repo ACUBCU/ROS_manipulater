@@ -10,5 +10,7 @@
     "${workspaceFolder}/ros_workspace/install/gong_basic/lib/python3.12/site-packages",
     "${workspaceFolder}/ros_workspace/install/tf2_basic/lib/python3.12/site-packages",
     "${workspaceFolder}/ros_workspace/install/user_interface/lib/python3.12/site-packages"
-  ]
+  ],
+  "python.analysis.stubPath": "${workspaceFolder}/typings",
+  "cmake.sourceDirectory": "/home/aa/gong_manipulator_20206/gong_ws/src/user_interface"
 }

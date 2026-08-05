@@ -33,6 +33,7 @@ setup(
             'circle_follow = camera_opencv.circle_follow:main',
             'event_draw = camera_opencv.event_draw:main',
             'find_ball = camera_opencv.find_ball:main',
+            'aruco_tf_pub = camera_opencv.aruco_tf_pub:main',
         ],
     },
 )

@@ -8,6 +8,9 @@ from tf2_ros import TransformBroadcaster
 from geometry_msgs.msg import TransformStamped
 from scipy.spatial.transform import Rotation as R
 
+# TODO : ROS camera_link와 Opencv 좌표 방향에 대한 보정
+
+
 class ArucoTfPublisher(Node):
     def __init__(self):
         super().__init__('aruco_tf_publisher')

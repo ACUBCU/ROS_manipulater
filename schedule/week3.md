@@ -18,8 +18,15 @@
 7교시: color space conversion, inrange trackbar 실습  
 8교시: manipulator-X gazebo 빨간 공 찾기 실습- model 작성, 노드 작성  
 
-**08.05**
-
+**08.05**  
+1교시: 복습, affine transform 실습  
+2교시: opencv affine 제공 편의 기능 resize, rotate, flip  
+3교시: perspective transform 실습  
+4교시: aruco marker detection 실습  
+5교시: ros2 aruco marker detection 실습  
+6교시: gazebo manipulator-X 에 aruco marker detection 실습  
+7교시: gazebo manipulator-X 에 aruco marker tf2 발행  
+8교시: gazebo manipulator-X 에 aruco marker tf2 발행 및 rviz2 확인  
 
 **08.06**  
 

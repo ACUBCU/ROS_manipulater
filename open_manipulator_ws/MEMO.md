@@ -13,6 +13,7 @@ Terminal
 * ros2 launch open_manipulator_bringup open_manipulator_x.launch.py port_name:={/dev/ttyUSB*}
 
 **패키지**
+* workspace/src 에서 실행
 * ros2 pkg create --build-type ament_python {pkg_name}
 
 **Telelop 수동 조작**

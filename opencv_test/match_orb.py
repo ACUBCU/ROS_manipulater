@@ -18,18 +18,10 @@ kp1, des1 = orbF.detectAndCompute(img1, None)
 bf = cv2.BFMatcher_create(cv2.NORM_HAMMING, crossCheck=True)
 
 # 2. 카메라 영상 캡처 설정
-cap = cv2.VideoCapture(0, cv2.CAP_V4L2)
-
+cap = cv2.VideoCapture(0)
 if not cap.isOpened():
-    print("오류: 카메라를 열 수 없습니다.")
+    print("카메라를 열 수 없습니다.")
     exit()
-
-cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc("M", "J", "P", "G"))
-cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
-
-width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
 MIN_MATCH_COUNT = 10  # Homography 연산을 위한 최소 매칭점 개수
 

@@ -76,9 +76,9 @@ while True:
                     frame = cv2.polylines(frame, [np.int32(pts2)], True, (0, 255, 0), 3)
                     
                     # 매칭 상태를 시각화하고 싶을 경우 아래 주석 해제
-                    # mask_matches = mask.ravel().tolist()
-                    # draw_params = dict(matchColor=(0, 255, 0), singlePointColor=None, matchesMask=mask_matches, flags=2)
-                    # frame = cv2.drawMatches(src1, kp1, frame, kp2, good_matches, None, **draw_params)
+                    mask_matches = mask.ravel().tolist()
+                    draw_params = dict(matchColor=(0, 255, 0), singlePointColor=None, matchesMask=mask_matches, flags=2)
+                    frame = cv2.drawMatches(src1, kp1, frame, kp2, good_matches, None, **draw_params)
             else:
                 cv2.putText(frame, "Not enough matches", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 

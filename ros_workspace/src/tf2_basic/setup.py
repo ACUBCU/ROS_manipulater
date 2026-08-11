@@ -14,7 +14,7 @@ def package_files(directory):
             continue
 
         install_path = os.path.join(
-            "share",
+            "share", 
             package_name,
             path,
         )

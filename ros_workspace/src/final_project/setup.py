@@ -36,6 +36,7 @@ setup(
         ("share/" + package_name + "/launch", glob(os.path.join("launch", "*.launch.py"))),
         ("share/" + package_name + "/world", glob(os.path.join("world", "*.sdf"))),
         ("share/" + package_name + "/models", glob(os.path.join("models", "*.*"))),
+        ('share/' + package_name + '/templates', glob(os.path.join('templates', '*.html'))),
     ] + package_files("models"),
     install_requires=['setuptools'],
     zip_safe=True,
@@ -53,6 +54,10 @@ setup(
             "spawn_cube = final_project.spawn_cube:main",
             "aruco_detect = final_project.aruco_detect:main",
             "robot_control = final_project.robot_control:main",
+            "dashboard = final_project.dashboard:main",
+            "world_reboot = final_project.world_reboot:main",
+            "spawn_marker = final_project.spawn_marker:main",
+            
         ],
     },
 )

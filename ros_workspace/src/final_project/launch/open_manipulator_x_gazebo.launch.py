@@ -152,6 +152,9 @@ def generate_launch_description():
             "/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock",
             "/gripper_camera/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo",
             "/gripper_camera/image_raw@sensor_msgs/msg/Image@gz.msgs.Image",
+            '/camera_top/image_raw@sensor_msgs/msg/Image[gz.msgs.Image',
+            '/camera_cube/image_raw@sensor_msgs/msg/Image[gz.msgs.Image',
+            '/camera_place/image_raw@sensor_msgs/msg/Image[gz.msgs.Image',
         ],
         output="screen",
     )
@@ -170,6 +173,32 @@ def generate_launch_description():
         output='screen',
     )
 
+    # 인지한 마커로 로봇 제어를 수행하는 노드 추가
+    robot_control_node = Node(
+        package='final_project',
+        executable='robot_control',
+        output='screen',
+    )
+
+    # 대시보드
+    dashboard_node = Node(
+        package='final_project',
+        executable='dashboard',
+        output='screen',
+    )
+
+    world_reboot_node = Node(
+        package='final_project',
+        executable='world_reboot',
+        output='screen',
+    )
+
+    spawn_marker_node = Node(
+        package='final_project',
+        executable='spawn_marker',
+        output='screen',
+    )
+    
     return LaunchDescription([
         RegisterEventHandler(
             event_handler=OnProcessExit(
@@ -191,4 +220,8 @@ def generate_launch_description():
         gz_spawn_entity,
         spawn_cubes_node, # 큐브 스폰 노드 반환 리스트 포함
         aruco_detect_node, # 아루코 마커 인식 노드 반환 리스트 포함
+        robot_control_node, # 로봇 제어 노드 반환 리스트 포함
+        dashboard_node, # 대시보드 노드 반환 리스트 포함
+        world_reboot_node, # 월드 리부트 노드 반환 리스트 포함
+        spawn_marker_node, # 마커 스폰 노드 반환 리스트 포함
     ])

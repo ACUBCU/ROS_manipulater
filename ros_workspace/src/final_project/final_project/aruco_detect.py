@@ -5,11 +5,11 @@ from cv_bridge import CvBridge
 import cv2
 from std_msgs.msg import Int32MultiArray
 
-class ArucoContrastTest(Node):
+class ArucoDetectNode(Node):
     def __init__(self):
-        super().__init__('aruco_contrast_test')
+        super().__init__('aruco_detect_node')
         self.bridge = CvBridge()
-        
+        self.target_logged = False
         self.dictionary = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
         self.parameters = cv2.aruco.DetectorParameters_create()
 
@@ -26,24 +26,19 @@ class ArucoContrastTest(Node):
         frame = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-        # 대비(Contrast)와 밝기(Brightness)를 조절하여 회색과 검은색의 경계를 극대화
-        # alpha: 대비 계수 (1.0보다 크면 대비 증가), beta: 밝기 조절
-        alpha = 2.0  # 대비 2배 증가
-        beta = -50   # 전체적으로 어둡게 만들어 검은색과 회색의 차이를 벌림
+        alpha = 2.0
+        beta = -50
         enhanced_gray = cv2.convertScaleAbs(gray, alpha=alpha, beta=beta)
 
         corners, ids, rejected = cv2.aruco.detectMarkers(enhanced_gray, self.dictionary, parameters=self.parameters)
-
-        pub_msg = Int32MultiArray()
 
         if ids is not None and len(ids) == 2:
             cv2.aruco.drawDetectedMarkers(frame, corners, ids)
             
             detected_ids = [int(ids[0][0]), int(ids[1][0])]
             
-            # 0~5번 범위의 마커와 6~10번 범위의 마커를 각각 분류
-            cube_id = None
-            target_id = None
+            cube_id = -1
+            target_id = -1
             
             for m_id in detected_ids:
                 if 0 <= m_id <= 5:
@@ -51,17 +46,23 @@ class ArucoContrastTest(Node):
                 elif 6 <= m_id <= 10:
                     target_id = m_id
             
-            self.get_logger().info(f'대상 큐브: ID {cube_id} -> 목표 장소: ID {target_id}')
-            
-            # 이후 cube_id와 target_id에 대응하는 위치(corners 좌표)를 바탕으로 로봇 제어 수행
+            if cube_id != -1 and target_id != -1:
+                # 1. 1회 로그 출력
+                if not self.target_logged:
+                    self.get_logger().info(f"대상 큐브: ID {cube_id} -> 목표 장소: ID {target_id}")
+                    self.target_logged = True
+                
+                # 2. 토픽 발행 (핵심 추가 부분)
+                pub_msg = Int32MultiArray()
+                pub_msg.data = [cube_id, target_id]
+                self.marker_pub.publish(pub_msg)
 
-        # 변조된 그레이스케일 화면 출력
-        cv2.imshow("Enhanced Gray", enhanced_gray)
+        # cv2.imshow("Enhanced Gray", enhanced_gray)
         cv2.waitKey(1)
 
 def main(args=None):
     rclpy.init(args=args)
-    node = ArucoContrastTest()
+    node = ArucoDetectNode()
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:

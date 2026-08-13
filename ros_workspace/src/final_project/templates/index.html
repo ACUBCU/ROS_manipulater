@@ -64,12 +64,10 @@
         }
     </script>
 </head>
-<body>
-    <h1>로봇 통합 관제 대시보드</h1>
-    
+<body>    
     <div class="dashboard-grid">
         <div class="cam-card">
-            <h3>전체 탑뷰 (Top View)</h3>
+            <h3>Top View</h3>
             <div class="video-container"><img src="/video/top" alt="Top Camera"></div>
         </div>
         <!-- <div class="cam-card">
@@ -81,7 +79,7 @@
             <div class="video-container"><img src="/video/place" alt="Place Camera"></div>
         </div> -->
         <div class="cam-card">
-            <h3>그리퍼 뷰 (Gripper View)</h3>
+            <h3>Gripper View</h3>
             <div class="video-container"><img src="/video/gripper" alt="Gripper Camera"></div>
         </div>
     </div>
@@ -92,9 +90,9 @@
             <label>장소 마커 ID (6~10): <input type="number" id="placeId" min="6" max="10" value="6"></label>
         </div>
         <div class="button-group">
-            <button onclick="applyMarkers()">🖼️ 벽에 마커 적용</button>
-            <button class="btn-start" onclick="startRobot()">▶ 이동 시작</button>
-            <button class="btn-reset" onclick="resetRobot()">🔄 월드 초기화</button>
+            <button onclick="applyMarkers()">마커 생성</button>
+            <button class="btn-start" onclick="startRobot()">이동 시작</button>
+            <button class="btn-reset" onclick="resetRobot()">큐브 초기화</button>
         </div>
     </div>
 </body>

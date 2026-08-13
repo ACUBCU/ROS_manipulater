@@ -133,7 +133,7 @@ class RobotControlNode(Node):
             self.get_logger().info(f"수신된 마커 ID 배열: {ids}")
             self.get_logger().info(f"작업 확정 - 큐브: {self.target_cube}, 장소: {self.target_place}")
             
-            self.destroy_subscription(self.subscription)
+            # self.destroy_subscription(self.subscription)
             self.task_ready.set()
 
     def _start_callback(self, msg: Int32MultiArray) -> None:
@@ -144,26 +144,37 @@ class RobotControlNode(Node):
         try:
             self._wait_for_action_servers()
             time.sleep(2.0)
-            self.get_logger().info("Action Server 연결 완료. 카메라 마커 인지 대기 중...")
+            self.get_logger().info("Action Server 연결 완료.")
 
             while not self.stop_event.is_set():
-                if self.task_ready.wait(timeout=0.2):
-                    break
-            
-            if self.stop_event.is_set():
-                return
+                # 매 작업 시작 전 상태 초기화
+                self.task_received = False
+                self.target_cube = -1
+                self.target_place = -1
+                self.task_ready.clear()
+                self.start_command_ready.clear()
 
-            self.get_logger().info("마커 인지 완료. 대시보드의 [이동 시작] 버튼 입력을 대기합니다.")
+                self.get_logger().info("새로운 작업을 위한 카메라 마커 인지 대기 중...")
 
-            while not self.stop_event.is_set():
-                if self.start_command_ready.wait(timeout=0.2):
-                    break
+                while not self.stop_event.is_set():
+                    if self.task_ready.wait(timeout=0.2):
+                        break
+                
+                if self.stop_event.is_set():
+                    return
 
-            if self.stop_event.is_set():
-                return
+                self.get_logger().info("마커 인지 완료. 대시보드의 [이동 시작] 버튼 입력을 대기합니다.")
 
-            self.get_logger().info("작업을 시작합니다.")
-            self._execute_pick_and_place()
+                while not self.stop_event.is_set():
+                    if self.start_command_ready.wait(timeout=0.2):
+                        break
+
+                if self.stop_event.is_set():
+                    return
+
+                self.get_logger().info("작업을 시작합니다.")
+                self._execute_pick_and_place()
+
         except Exception as exc:
             self.get_logger().error(f"스레드 실행 중 치명적 오류 발생: {exc}")
 
@@ -179,6 +190,10 @@ class RobotControlNode(Node):
         grasp_angles = target_pick_data['grasp']
         place_approach_angles = target_place_data['approach']
         place_angles = target_place_data['place']
+
+        # 큐브에 접근하기 전 그리퍼 열기 동작 추가
+        self._safe_send_gripper_goal(self.gripper_open, label="initial_gripper_open")
+        time.sleep(1.0)
 
         self._send_arm_goal(approach_angles, duration=3.0, label="approach_pose")
         self._send_arm_goal(grasp_angles, duration=2.0, label="grasp_pose")
@@ -267,12 +282,12 @@ class RobotControlNode(Node):
         return wrapped.result
 
     def _wait_event(self, event: threading.Event, timeout: float, label: str) -> None:
-        deadline = time.monotonic() + timeout
+        # deadline = time.monotonic() + timeout
         while not event.wait(0.1):
             if self.stop_event.is_set():
                 raise RuntimeError("노드 종료됨")
-            if time.monotonic() >= deadline:
-                raise TimeoutError(f"{label} 시간 초과")
+            # if time.monotonic() >= deadline:
+            #     raise TimeoutError(f"{label} 시간 초과")
 
     def destroy_node(self):
         self.stop_event.set()

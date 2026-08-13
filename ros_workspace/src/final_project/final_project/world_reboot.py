@@ -18,7 +18,7 @@ class WorldRebootNode(Node):
 
     def reboot_world(self) -> None:
         for i in range(6):
-            subprocess.run(['gz', 'service', '-s', '/world/final/remove', '--reqtype', 'gz.msgs.Entity', '--reptype', 'gz.msgs.Boolean', '--timeout', '2000', '--req', f'name: "cube_{i}" type: MODEL'], check=False)
+            subprocess.run(['gz', 'service', '-s', '/world/final/remove', '--reqtype', 'gz.msgs.Entity', '--reptype', 'gz.msgs.Boolean', '--timeout', '2000', '--req', f'name: "aruco_cube_{i}" type: MODEL'], check=False)
         
         subprocess.Popen(['ros2', 'run', 'final_project', 'spawn_cube'])
         self.get_logger().info("월드 초기화 및 큐브 재생성 완료")
